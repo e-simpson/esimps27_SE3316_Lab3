@@ -3,39 +3,41 @@
 <link href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto" rel="stylesheet">
 
 <html>
-    <head>
-        <title>SE 3316 - Lab 3</title>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type='text/javascript' src='script.js'></script>
-    </head>
+<head>
+    <title>SE 3316 - Lab 3</title>
 
-    <body style= "font-family: 'Inconsolata', sans-serif; background: white;" >
-        <h1 style = "text-align: center; font-family: 'Inconsolata', monospace; font-size: 3em; color: #ffab51;">Courser Message Board</h1>
-            
-        <div class="row" style = "content: ""; display: table; clear: both;">
-             <div class="column" style = "float: left; width: 50%;">
-                 <h2 style = "text-align: center;">Course 1 Recent Messages</h2>
-                 <ul id="courseList1"/>
-                 
-                 <div style = "margin-left: auto; margin-right: auto; text-align: center;">
-                     <input type="text" id="input1" style = "padding: 10px 10px; border: 2px solid #ffab51;">
-                     <button id = "enter1" style = "border: none; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px; color: white; background-color: #ffab51; font-size: 1em;">Submit</button>
-                 </div>
-             </div>
-             
-             <div class="column" style = "float: left; width: 50%;">
-                <h2 style = "text-align: center;">Course 2 Recent Messages</h2> 
-                <ul id="courseList2"/>
-                
-                <div style = "margin-left: auto; margin-right: auto; text-align: center;">
-                    <input type="text" id="input2" style = "padding: 10px 10px; border: 2px solid #ffab51;">
-                    <button id = "enter2" style = "border: none; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px; color: white; background-color: #ffab51; font-size: 1em;">Submit</button>
-                </div>
-             </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type='text/javascript' src='script.js'></script>
+    <script type='text/javascript' src='http://spin.js.org/spin.js'></script>
+</head>
+
+<body style="font-family: sans-serif; background: white;">
+    <h1 style="text-align: center; text-decoration: underline; font-family: 'Inconsolata', monospace; font-size: 3em; color: #ffab51;">Courser Message Board</h1>
+
+    <div class="row" style="content: " "; display: table; clear: both;">
+        <div class="column" style="float: left; width: 50%;">
+            <h2 style="text-align: center;">[SE 3316] Recent Messages</h2>
+
+            <ul id="courseList1" style="padding-left:0;"></ul>
+
+            <div style="margin-left: auto; margin-right: auto; margin-top: 20px; text-align: center;">
+                <input type="text" id="input1" style="width: 60%; padding: 10px 10px; border: 2px solid #ffab51;">
+                <button id="enter1" style="border: none; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px; color: white; background-color: #ffab51; font-size: 1em;">ENTER</button>
+            </div>
         </div>
 
-        
-        
-    </body>
+        <div class="column" style="float: left; width: 50%;">
+            <h2 style="text-align: center;">[SE 3313] Recent Messages</h2>
+
+            <ul id="courseList2" style="padding-left:0;"></ul>
+
+            <div style="margin-left: auto; margin-right: auto; margin-top: 20px; text-align: center;">
+                <input type="text" id="input2" style="width: 60%; padding: 10px 10px; border: 2px solid #ffab51;">
+                <button id="enter2" style="border: none; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px; color: white; background-color: #ffab51; font-size: 1em;">ENTER</button>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

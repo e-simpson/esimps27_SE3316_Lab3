@@ -6,7 +6,7 @@ var Schema       = mongoose.Schema;
 var tweetSchema   = new Schema({
     text: String,
     courseID: String,
-    time: String
+    time: Number,
 });
 
 module.exports = mongoose.model('Tweet', tweetSchema);
