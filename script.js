@@ -51,9 +51,9 @@ $(document).ready(function() {
         var sanitizedText = sanitize(message.text)
         var color = lightenColor("#ffab51", count)
         var d = new Date(message.time);
-        $(listID).append(
+        $(listID).prepend(
             '<li style = "list-style-type: none; margin: 10px 20px 10px 20px;">' +
-                '<b style= " padding: 5px 13px 5px 13px;  border-radius: 3px; box-shadow: 0 2px 3px 0 rgba(0,0,0,0); background: ' + color + '; font-size: 0.7em; ">' +
+                '<b style= " padding: 5px 13px 5px 13px; border-radius: 3px; box-shadow: 0 2px 3px 0 rgba(0,0,0,0); background: ' + color + '; font-size: 0.7em; ">' +
                     sanitizedText +
                 '</b>' +
                 
