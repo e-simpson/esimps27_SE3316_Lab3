@@ -7,6 +7,9 @@ $(document).ready(function() {
     // process ajax post message to mongodb on server
     function postMessage(inputID, courseID) {
         showLoading()
+        
+        if ($(inputID).val().trim() == "") {return;}
+        
         $.ajax({
             type: 'POST',
             data: { "text": $(inputID).val(), "courseID": courseID, "time": $.now() },
@@ -34,6 +37,8 @@ $(document).ready(function() {
 
 
 
+
+
     //sanitze the message
     function sanitize(message){
         var div = document.createElement('div');
@@ -42,17 +47,19 @@ $(document).ready(function() {
     }
 
     // create new message element with styling
-    function newMessageElement(listID, message) {
+    function newMessageElement(listID, message, count) {
         var sanitizedText = sanitize(message.text)
+        var color = lightenColor("#ffab51", count)
         var d = new Date(message.time);
         $(listID).append(
             '<li style = "list-style-type: none; margin: 10px 20px 10px 20px;">' +
-            '<b style= " padding: 5px 13px 5px 13px;  border-radius: 3px; box-shadow: 0 2px 3px 0 rgba(0,0,0,0); background: #ffab51; font-size: 0.7em; ">' +
-            sanitizedText +
-            '</b>' +
-            '<i style= "padding: 5px 13px 5px 13px; color: #c1c1c1; font-size: 0.7em; ">' +
-            d.toLocaleTimeString() + ", " + d.toLocaleDateString() +
-            '</i>' +
+                '<b style= " padding: 5px 13px 5px 13px;  border-radius: 3px; box-shadow: 0 2px 3px 0 rgba(0,0,0,0); background: ' + color + '; font-size: 0.7em; ">' +
+                    sanitizedText +
+                '</b>' +
+                
+                '<i style= "padding: 5px 13px 5px 13px; color: #c1c1c1; font-size: 0.7em; ">' +
+                d.toLocaleTimeString() + ", " + d.toLocaleDateString() +
+                '</i>' +
             '</li>'
         )
     }
@@ -65,13 +72,13 @@ $(document).ready(function() {
         $.each(messages.reverse(), function(i, item) {
             if (messages[i].courseID == "SE 3316" && messages[i].text != null && messages[i].time != null) {
                 if (course1count <= 20) {
-                    newMessageElement("#courseList1", messages[i]);
+                    newMessageElement("#courseList1", messages[i], course1count*2);
                     course1count += 1;
                 }
             }
             if (messages[i].courseID == "SE 3313" && messages[i].text != null && messages[i].time != null) {
                 if (course2count <= 20) {
-                    newMessageElement("#courseList2", messages[i]);
+                    newMessageElement("#courseList2", messages[i], course2count*2);
                     course2count += 1;
                 }
             }
@@ -90,6 +97,7 @@ $(document).ready(function() {
 
 
 
+
     // set up submit buttons to post when enter or submit button
     $("#enter1").click(function() { postMessage('#input1', "SE 3316"); });
     $("#input1").keyup(function(e) {
@@ -97,15 +105,13 @@ $(document).ready(function() {
         if (e.which == 13) { $("#enter1").click(); } 
     });
     
-    // set character counting
-    // $("#input1").keydown(function(e) {  });
-    
     // set up submit buttons to post when enter or submit button
     $("#enter2").click(function() { postMessage('#input2', "SE 3313"); });
     $("#input2").keyup(function(e) {
         checkCharacterCount("#input2", "#charCount2");
         if (e.which == 13) { ("#enter2").click();} 
     });
+
 
 
 
@@ -125,7 +131,7 @@ $(document).ready(function() {
             top: 0;
             right: 0;
             bottom: 0;
-            z-index: 4;
+            z-index: -1;
         }
 
         .loading-track {
@@ -147,7 +153,7 @@ $(document).ready(function() {
         .loading-dot-animated {
             animation-name: loading-dot-animated;
             animation-direction: alternate;
-            animation-duration: .10s;
+            animation-duration: .20s;
             animation-iteration-count: infinite;
         }
 
@@ -191,5 +197,33 @@ $(document).ready(function() {
         document.body.removeChild(document.getElementById("divLoadingFrame"));
         document.body.removeChild(document.getElementById("styleLoadingWindow"));
     };
-
+    
+    //lighten color
+    function lightenColor(col, amt) {
+        var usePound = false;
+      
+        if (col[0] == "#") {
+            col = col.slice(1);
+            usePound = true;
+        }
+     
+        var num = parseInt(col,16);
+     
+        var r = (num >> 16) + amt;
+     
+        if (r > 255) r = 255;
+        else if  (r < 0) r = 0;
+     
+        var b = ((num >> 8) & 0x00FF) + amt;
+     
+        if (b > 255) b = 255;
+        else if  (b < 0) b = 0;
+     
+        var g = (num & 0x0000FF) + amt;
+     
+        if (g > 255) g = 255;
+        else if (g < 0) g = 0;
+     
+        return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+    }
 });
