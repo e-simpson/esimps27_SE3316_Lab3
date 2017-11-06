@@ -109,7 +109,7 @@ $(document).ready(function() {
     $("#enter2").click(function() { postMessage('#input2', "SE 3313"); });
     $("#input2").keyup(function(e) {
         checkCharacterCount("#input2", "#charCount2");
-        if (e.which == 13) { ("#enter2").click();} 
+        if (e.which == 13) { $("#enter2").click();} 
     });
 
 
