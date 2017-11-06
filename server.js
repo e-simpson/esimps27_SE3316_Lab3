@@ -4,7 +4,6 @@
 // =============================================================================
 
 
-
 // mongoose set up
 var mongoose = require('mongoose');             //require mongoose
 mongoose.Promise = global.Promise;              // used to fix promise deprecation
@@ -70,41 +69,6 @@ router.route('/tweets')
         });
     });
     
-    
-// router.route('/tweets/:tweet_id')
-//     // get the tweet with that id (accessed at GET http://localhost:8080/api/bears/:tweet_id)
-//     .get(function(req, res) {
-//         Tweet.findById(req.params.tweet_id, function(err, tweet) {
-//             if (err){ res.send(err); }
-//             res.json(tweet);
-//         });
-//     })
-//     // update the tweet with this id (accessed at PUT http://localhost:8080/api/bears/:tweet_id)
-//     .put(function(req, res) {
-
-//         // use our tweet model to find the tweet we want
-//         Tweet.findById(req.params.tweet_id, function(err, tweet) {
-//             if (err) { res.send(err);}
-//             tweet.name = req.body.name;  // update the bears info
-
-//             // save the tweet
-//             tweet.save(function(err) {
-//                 if (err){ res.send(err); }
-//                 res.json({ message: 'Tweet updated!' });
-//             });
-
-//         });
-//     })
-//     // delete the tweet with this id (accessed at DELETE http://localhost:8080/api/tweets/:tweet_id)
-//     .delete(function(req, res) {
-//         Tweet.remove({
-//             _id: req.params.tweet_id
-//         }, function(err, tweet) {
-//             if (err){ res.send(err);}
-
-//             res.json({ message: 'Successfully deleted' });
-//         });
-//     });    
     
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api

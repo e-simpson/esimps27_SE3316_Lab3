@@ -13,29 +13,31 @@
 </head>
 
 <body style="font-family: sans-serif; background: white;">
-    <h1 style="text-align: center; text-decoration: underline; font-family: 'Inconsolata', monospace; font-size: 3em; color: #ffab51;">Courser Message Board</h1>
+    <h1 style="margin: auto; width: 600px; padding: 5px; border-style: solid; text-align: center; font-family: 'Inconsolata', monospace; font-size: 3em; color: #ffab51;">Course Message Board</h1>
 
     <div class="row" style="content: " "; display: table; clear: both;">
         <div class="column" style="float: left; width: 50%;">
-            <h2 style="text-align: center;">[SE 3316] Recent Messages</h2>
-
-            <ul id="courseList1" style="padding-left:0;"></ul>
-
+            <h2 style="text-align: center; text-decoration: underline; margin: 30px 0px 0px 0px">SE 3316 Recent Messages</h2>
+            
+            <ul id="courseList1" style="padding-left:0; margin-top: 40px;"></ul>
+            
             <div style="margin-left: auto; margin-right: auto; margin-top: 20px; text-align: center;">
-                <input type="text" id="input1" style="width: 60%; padding: 10px 10px; border: 2px solid #ffab51;">
-                <button id="enter1" style="border: none; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px; color: white; background-color: #ffab51; font-size: 1em;">ENTER</button>
+                <input type="text" id="input1" maxlength = "200" style="width: 60%; padding: 10px 10px; border: 2px solid #ffab51;">
+                <button id="enter1" style="border: none; box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px 11px 10px; color: white; background-color: #ffab51; font-size: 1em;">ENTER</button>
             </div>
+            <b id="charCount1" style="margin: 10px; padding: 10px 10px 10px 10px; color: grey; font-size: 0.7em">0/200</b>
         </div>
 
         <div class="column" style="float: left; width: 50%;">
-            <h2 style="text-align: center;">[SE 3313] Recent Messages</h2>
-
-            <ul id="courseList2" style="padding-left:0;"></ul>
-
+            <h2 style="text-align: center; text-decoration: underline; margin: 30px 0px 0px 0px">SE 3313 Recent Messages</h2>
+            
+            <ul id="courseList2" style="padding-left:0; margin-top: 40px;"></ul>
+            
             <div style="margin-left: auto; margin-right: auto; margin-top: 20px; text-align: center;">
-                <input type="text" id="input2" style="width: 60%; padding: 10px 10px; border: 2px solid #ffab51;">
-                <button id="enter2" style="border: none; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px; color: white; background-color: #ffab51; font-size: 1em;">ENTER</button>
+                <input type="text" id="input2" maxlength = "200" style="width: 60%; padding: 10px 10px; border: 2px solid #ffab51;">
+                <button id="enter2" style="border: none; box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2); cursor: pointer; padding: 10px 10px 11px 10px; color: white; background-color: #ffab51; font-size: 1em;">ENTER</button>
             </div>
+            <b id="charCount2" style="margin: 100px 10px 10px 10px; padding: 10px 10px 10px 10px; color: grey; font-size: 0.7em">0/200</b>
         </div>
     </div>
 </body>
