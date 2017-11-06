@@ -30,19 +30,25 @@ $(document).ready(function() {
             success: function(data) { populateMessageLists(data); }
         })
     };
-    getAllMessages(); setInterval(getAllMessages, 5000);
+    getAllMessages(); setInterval(getAllMessages, 1000);
 
 
 
-
+    //sanitze the message
+    function sanitize(message){
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(message));
+        return div.innerHTML;
+    }
 
     // create new message element with styling
     function newMessageElement(listID, message) {
+        var sanitizedText = sanitize(message.text)
         var d = new Date(message.time);
         $(listID).append(
             '<li style = "list-style-type: none; margin: 10px 20px 10px 20px;">' +
             '<b style= " padding: 5px 13px 5px 13px;  border-radius: 3px; box-shadow: 0 2px 3px 0 rgba(0,0,0,0); background: #ffab51; font-size: 0.7em; ">' +
-            message.text +
+            sanitizedText +
             '</b>' +
             '<i style= "padding: 5px 13px 5px 13px; color: #c1c1c1; font-size: 0.7em; ">' +
             d.toLocaleTimeString() + ", " + d.toLocaleDateString() +
@@ -80,6 +86,7 @@ $(document).ready(function() {
         var count = text.length; if (text == "") { count = 0;}
         $(counterID).text(count + "/200");
     }
+
 
 
 
